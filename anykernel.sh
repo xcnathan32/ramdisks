@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # EDIFY properties
 properties() {
-kernel.string=franco.Kernel by franciscofranco @ xda-developers
+kernel.string=franco.Kernel by franciscofranco @ xda-developers, modified to use 4 cores by XCnathan32.
 do.devicecheck=1
 do.initd=0
 do.modules=0
@@ -25,6 +25,9 @@ is_slot_device=0;
 dump_boot;
 
 # begin ramdisk changes
+
+# Use 4 cores
+patch_cmdline "maxcpus=4" "maxcpus=4";
 
 # init.angler.rc
 insert_line init.angler.rc "init.fk.rc" after "import init.angler.sensorhub.rc" "import init.fk.rc";
